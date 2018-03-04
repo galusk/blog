@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to articles_path(@article)
+      redirect_to articles_path(@article), notice: 'Pomyslnie utworzono artykul'
     else
       render 'new'
     end
