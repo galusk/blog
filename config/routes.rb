@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :articles do
+    post :add_like, on: :member
     resources :comments, only: [:create, :destroy]
   end
    #only; [:show, ;edit, :update, :index, :destroy]
