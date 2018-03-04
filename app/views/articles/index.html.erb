@@ -35,8 +35,12 @@
                               method: :delete,
                               data: { confirm: 'Are you sure?'},
                               class: 'btn btn-danger' %>
-      <td><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-success' %></td>
+      <td id=''>
+        <% if article.user == current_user %>
+            <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-success' %>
+        <% end %>
       </td>
-    </tr>
+    </td>
+  </tr>
   <% end %>
 </table>

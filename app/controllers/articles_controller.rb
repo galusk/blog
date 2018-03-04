@@ -34,11 +34,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    if @article.user =! current_user
+      redirect_to.articles_path
+    end
   end
 
   def update
     if @article.update(article_params)
-      redirect_to articles_path
+      redirect_to articles_path, notice: 'No acces'
     else
       render 'edit'
     end
