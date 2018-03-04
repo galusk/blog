@@ -14,9 +14,16 @@
 </p>
 
 <p>
-  <strong>Tags:</strong>
-  <%= @article.tags.split.join(' ') %>
+  <strong>Author:</strong>
+  <%= @article.user.email %>
 </p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+
 
 <h2>Comments</h2>
 <%= render @article.comments.order(created_at: :desc) %>
