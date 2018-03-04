@@ -13,6 +13,11 @@
   <%= @article.text %>
 </p>
 
+<p>
+  <strong>Tags:</strong>
+  <%= @article.tags.split.join(' ') %>
+</p>
+
 <h2>Comments</h2>
 <%= render @article.comments.order(created_at: :desc) %>
 
