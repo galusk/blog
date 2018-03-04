@@ -11,16 +11,20 @@ class ArticlesController < ApplicationController
   end
 
   def create
+
     @article = Article.new(article_params)
     if @article.save
       redirect_to articles_path(@article)
+      session[:commenter] = @comment.commenter
     else
       render 'new'
     end
   end
 
   def show
-    @comment = Comment.new
+
+    @comment = Comment.new(commenter: session[:commenter])
+
   end
 
   def destroy
